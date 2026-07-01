@@ -1,38 +1,34 @@
 import streamlit as st
+# بنستدعي البيانات من ملف data.py اللي عملناه
+from data import life_style, industry_secrets 
 
-# إعداد واجهة البرنامج بشكل احترافي
+# إعداد واجهة البرنامج
 st.set_page_config(page_title="#ATegypT", page_icon="🇪🇬", layout="centered")
 
-# إضافة شوية ستايل عشان الشكل يبان "شيك"
+# الستايل
 st.markdown("""
     <style>
-    .main { background-color: #fcfcfc; }
-    .stButton>button { width: 100%; border-radius: 5px; height: 3em; background-color: #d4af37; color: white; font-weight: bold; }
+    .stButton>button { background-color: #d4af37; color: white; font-weight: bold; }
     </style>
     """, unsafe_allow_html=True)
 
-# العنوان الرئيسي
-st.title("🏛️ #ATegypT")
-st.subheader("بوابتك الرقمية لعظمة التاريخ المصري")
+# القائمة الجانبية
+menu = st.sidebar.radio("استكشف التاريخ:", ["الرئيسية", "أسلوب الحياة", "أسرار الصناعة"])
 
-# وصف المشروع
-st.info("""
-**#ATegypT** هي منصة رائدة بتعيد إحياء التاريخ. 
-إحنا مش بنعرض صور، إحنا بنحكي قصص الحضارة:
-- أسلوب الحياة والملابس الفرعونية.
-- أسرار الصناعة والفلك.
-- التخطيط الهندسي اللي حير العالم.
-""")
+# عرض الصفحات
+if menu == "الرئيسية":
+    st.title("🏛️ #ATegypT")
+    st.subheader("بوابتك الرقمية لعظمة التاريخ المصري")
+    st.info("اختر قسماً من القائمة الجانبية لتبدأ رحلتك.")
 
-# إضافة أيقونة أو صورة (اختياري)
-# st.image("https://upload.wikimedia.org/wikipedia/commons/e/e3/King_Tut_Mask.jpg")
+elif menu == "أسلوب الحياة":
+    st.header(life_style["title"])
+    st.write(life_style["content"])
 
-# منطقة التفاعل
-if st.button("🚀 ابدأ الرحلة الاستكشافية الآن"):
-    st.balloons()
-    st.success("تم تفعيل البوابة الزمنية! انتظر التحديثات القادمة للـ 3D و الـ AI.")
-    st.write("المشروع تحت التطوير المستمر.. خليك متابع!")
+elif menu == "أسرار الصناعة":
+    st.header(industry_secrets["title"])
+    st.write(industry_secrets["content"])
 
 # تذييل الصفحة
-st.markdown("---")
-st.caption("صُنع بكل فخر من أجل مصر 🇪🇬 | #ATegypT Team")
+st.sidebar.markdown("---")
+st.sidebar.caption("صُنع بكل فخر من أجل مصر 🇪🇬")
