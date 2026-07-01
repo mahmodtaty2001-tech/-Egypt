@@ -1,15 +1,15 @@
-#import streamlit as st
+    import streamlit as st
 
 st.set_page_config(page_title="#ATegypT", page_icon="🇪🇬")
 
-menu = st.sidebar.radio("استكشف التاريخ:", ["الرئيسية", "أسلوب الحياة", "أسرار الصناعة"])
+    menu = st.sidebar.radio("استكشف التاريخ:", ["الرئيسية", "أسلوب الحياة", "أسرار الصناعة"])
 
-if_menu == "الرئيسية":
+    menu == "الرئيسية":
     st.title("🏛️ #ATegypT")
     st.subheader("بوابتك الرقمية لعظمة التاريخ المصري")
     st.info("استخدم القائمة الجانبية للتنقل.")
 
-elif_menu == "أسلوب الحياة":
+    menu == "أسلوب الحياة":
     st.header("أسلوب الحياة والملابس الفرعونية")
     st.write(
         """
@@ -19,7 +19,7 @@ elif_menu == "أسلوب الحياة":
     """
     )
 
-elif_menu == "أسرار الصناعة":
+    menu == "أسرار الصناعة":
     st.header("أسرار الصناعة والفلك")
     st.write(
         """
