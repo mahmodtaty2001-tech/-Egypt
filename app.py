@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 # إعدادات الصفحة الكاملة للمتحف
 st.set_page_config(
@@ -46,15 +47,14 @@ st.markdown("""
 st.markdown("<h1>🏛️ محاكاة جولة المتحف المصري الكبير 3D</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center; color: #AAA;'>مرحباً بك في البهو العظيم وقاعات العرض. حرك التماثيل بلمسة من شاشتك لاستكشاف تفاصيلها الحجرية.</p>", unsafe_allow_html=True)
 
-# تقسيم قاعات المتحف (هنا تعريف المتغير عشان ما يديش NameError)
-قاعات_المتحف = st.tabs(["🗿 البهو العظيم (رمسيس)", "👑 قاعة القناع الذهبي", "𓂀 تمثال أبو الهول الإهداي"])
+# تقسيم قاعات المتحف باستخدام أسماء إنجليزية للمتغيرات لتفادي مشاكل الحروف العربية في البرمجة
+tabs = st.tabs(["🗿 البهو العظيم (رمسيس)", "👑 قاعة القناع الذهبي", "𓂀 تمثال أبو الهول الإهداي"])
 
 # --- القاعة الأولى: تمثال رمسيس الثاني ---
-with قاعات_المتحف[0]:
-    st.markdown("<h2>🗿 تمثال الملك رمسيس الثاني الضخم</h2>")
+with tabs[0]:
+    st.markdown("<h2>🗿 تمثال الملك رمسيس الثاني الضخم</h2>", unsafe_allow_html=True)
     
-    # الرابط الجديد المحدث لتمثال رمسيس الثاني لتفادي خطأ 404
-    st.components.v1.html(
+    components.html(
         """
         <iframe title="Ramesses II" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="100%" height="450" src="https://sketchfab.com/models/19ebca33e8394e0996843477f72f2d90/embed?autostart=1&ui_controls=1&ui_infos=0&ui_watermark=0"></iframe>
         """,
@@ -77,10 +77,10 @@ with قاعات_المتحف[0]:
     """, unsafe_allow_html=True)
 
 # --- القاعة الثانية: قناع توت عنخ آمون ---
-with قاعات_المتحف[1]:
-    st.markdown("<h2>👑 قناع دفن الملك الذهبي توت عنخ آمون</h2>")
+with tabs[1]:
+    st.markdown("<h2>👑 قناع دفن الملك الذهبي توت عنخ آمون</h2>", unsafe_allow_html=True)
     
-    st.components.v1.html(
+    components.html(
         """
         <iframe title="Tutankhamun Mask" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="100%" height="450" src="https://sketchfab.com/models/bf384358a9e046209b552de6eb0bc5db/embed?autostart=1&ui_controls=1&ui_infos=0&ui_watermark=0"></iframe>
         """,
@@ -102,10 +102,10 @@ with قاعات_المتحف[1]:
     """, unsafe_allow_html=True)
 
 # --- القاعة الثالثة: أبو الهول ---
-with قاعات_المتحف[2]:
-    st.markdown("<h2>𓂀 تمثال أبو الهول الصغير (Votive Sphinx)</h2>")
+with tabs[2]:
+    st.markdown("<h2>𓂀 تمثال أبو الهول الصغير (Votive Sphinx)</h2>", unsafe_allow_html=True)
     
-    st.components.v1.html(
+    components.html(
         """
         <iframe title="The Sphinx" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="100%" height="450" src="https://sketchfab.com/models/007421ae33704870b22ff7728dfc9861/embed?autostart=1&ui_controls=1&ui_infos=0&ui_watermark=0"></iframe>
         """,
