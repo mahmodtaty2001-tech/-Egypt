@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A-Frame GLTF Demo - ATegypT</title>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  </head>
+  <body style="margin:0;">
+    <a-scene background="color: #000000">
+      <a-entity position="0 1.6 3">
+        <a-camera></a-camera>
+      </a-entity>
+
+      <!-- مثال: استبدل قيمة src بالرابط إلى ملف GLB عام -->
+      <a-entity position="0 0 -2">
+        <a-gltf-model src="https://cdn.aframe.io/test-models/models/duck/duck.gltf" rotation="0 180 0" scale="0.01 0.01 0.01"></a-gltf-model>
+      </a-entity>
+
+      <a-sky color="#000"></a-sky>
+    </a-scene>
+  </body>
+</html>
